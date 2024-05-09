@@ -1,4 +1,4 @@
-@import "./reset.css";
+@import "./shared/styles/reset.css";
 
 body {
 	margin: 0;
