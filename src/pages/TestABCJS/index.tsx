@@ -7,11 +7,12 @@ const TestABCJS = ({ abcString }: { abcString: string }) => {
 
 	useEffect(() => {
 		if (inputEl.current)
-			// @ts-ignore
-			abcjs.renderAbc(inputEl.current, abcTune, {
-				add_classes: true,
-				responsive: "resize",
-			});
+			console.log(
+				abcjs.renderAbc(inputEl.current, abcTune, {
+					add_classes: true,
+					responsive: "resize",
+				}),
+			);
 	}, [abcTune]);
 
 	useEffect(() => {
