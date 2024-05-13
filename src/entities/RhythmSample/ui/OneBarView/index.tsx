@@ -7,7 +7,7 @@ const OneBarView = ({ bar }: { bar: AbcDrumBar }) => {
 	const { displayElement } = useDisplayAbc(bar.getAbcString());
 	return (
 		<div>
-			<div ref={displayElement}></div>;
+			<div ref={displayElement}></div>
 		</div>
 	);
 };

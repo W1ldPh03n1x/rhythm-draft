@@ -24,6 +24,19 @@ export const DRUM_MAPPING_STRING = `%%MIDI drummap D   44 % pedal hi-hat
 
 export const DRUM_ALIAS_STRING = `U: X=+style=x+\nU: O=+open+\n`;
 
+const makeDrumAbcHeader = (
+	baseLength: NoteLength = "1/8",
+	signature?: TimeSignature,
+	tempo?: number,
+) => {
+	return (
+		DRUM_MAPPING_STRING +
+		DRUM_ALIAS_STRING +
+		(tempo ? `Q: ${tempo}\n` : "") +
+		`L: ${baseLength}\nK: perc\nM:${signature || ""}\nV:1 up\n`
+	);
+};
+
 export class AbcDrumBar {
 	abcNotes: string;
 	baseLength: NoteLength;
@@ -39,8 +52,12 @@ export class AbcDrumBar {
 		this.signature = signature;
 	}
 
-	getAbcString(signature?: boolean): string {
-		if (signature) {
+	getAbcString(
+		{ displaySignature, tempo }: { displaySignature?: boolean; tempo?: number } = {
+			displaySignature: true,
+		},
+	): string {
+		if (displaySignature) {
 			return makeDrumAbcHeader(this.baseLength, this.signature) + this.abcNotes;
 		}
 		return makeDrumAbcHeader(this.baseLength) + this.abcNotes;
@@ -111,17 +128,4 @@ export type BarData = {
 	abcNotes: string;
 	baseLength: NoteLength;
 	signature?: TimeSignature;
-};
-
-const makeDrumAbcHeader = (
-	baseLength: NoteLength = "1/8",
-	signature?: TimeSignature,
-	tempo?: number,
-) => {
-	return (
-		DRUM_MAPPING_STRING +
-		DRUM_ALIAS_STRING +
-		(tempo ? `Q: ${tempo}\n` : "") +
-		`L: ${baseLength}\nK: perc\nM:${signature || ""}\nV:1 up\n`
-	);
 };
