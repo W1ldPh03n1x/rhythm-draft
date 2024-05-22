@@ -5,7 +5,7 @@ import ABCJS from "../pages/TestABCJS";
 
 import AbcComponent from "../pages/TestABCJS/AbcComponent";
 import { AbcDrumBar, composeAbcDrumPart } from "../shared/lib/utils/abcDrumStrings";
-import { OneBarAudio, OneBarView } from "../entities/RhythmSample/";
+import { OneBar } from "../entities/OneBar";
 
 function App() {
 	const abcString = `X:1
@@ -42,8 +42,8 @@ V:1
 			{/* <ABCJS abcString={abcString} /> */}
 			{/* <ABCJS abcString={abc} /> */}
 			{/* <ABCJS abcString={abcTest} /> */}
-			<OneBarView bar={takaTakaSampleBar} />
-			<OneBarAudio bar={takaTakaSampleBar} />
+			<OneBar.View bar={takaTakaSampleBar} />
+			<OneBar.Audio bar={takaTakaSampleBar} />
 		</div>
 	);
 }

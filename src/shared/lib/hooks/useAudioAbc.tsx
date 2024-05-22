@@ -8,7 +8,7 @@ import {
 	renderAbc,
 } from "abcjs";
 
-const useAudioAbc = (
+export const useAudioAbc = (
 	source: string | TuneObject,
 	visualOptions: SynthVisualOptions = {
 		displayLoop: true,
@@ -59,7 +59,5 @@ const useAudioAbc = (
 		setSourceData(source);
 	}, [source]);
 
-	return displayElement;
+	return { displayElement };
 };
-
-export default useAudioAbc;
