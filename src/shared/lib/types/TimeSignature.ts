@@ -1,11 +1,11 @@
 type TimeSignature = {
-	value: [1, 4] | [2, 4] | [3, 4] | [4, 4] | [5, 8] | [6, 8] | [7, 8] | [8, 8];
+	value: [1, 4] | [2, 4] | [3, 4] | [4, 4] | [5, 8] | [6, 8] | [7, 8];
 	beatsPerBar: number;
 	beatDuration: number;
-	toString: () => string;
+	toString: () => TimeSignatureString;
 };
 
-type TimeSignatureString = "1/4" | "2/4" | "3/4" | "4/4" | "5/8" | "6/8" | "7/8" | "8/8";
+type TimeSignatureString = "1/4" | "2/4" | "3/4" | "4/4" | "5/8" | "6/8" | "7/8";
 
 class Signature implements TimeSignature {
 	value: TimeSignature["value"];
@@ -20,7 +20,7 @@ class Signature implements TimeSignature {
 		return this.value[1];
 	}
 	toString() {
-		return `${this.beatsPerBar}/${this.beatDuration}`;
+		return `${this.beatsPerBar}/${this.beatDuration}` as TimeSignatureString;
 	}
 }
 

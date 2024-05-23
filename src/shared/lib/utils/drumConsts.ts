@@ -21,13 +21,57 @@ export const DRUM_MAPPING_STRING = `%%MIDI drummap D   44 % pedal hi-hat
 %%MIDI drummap ^a  81 % open triangle
 %MIDI channel 10
 `;
+export const AbcDrumsNotes = ["D", "F", "A", "c", "d", "e", "f", "g", "a"];
 
-export const DRUM_ALIAS_STRING = `U: X=+style=x+\nU: O=+open+\n`;
+export const DRUM_ALIAS_STRING = `U: X=+style=x+\nU: O=+open+\nU: H=+style=harmonic+\n`;
 
 export const ROOT_BEAT_LENGTH = "1/8";
 
 export const STRAIGHT_DURATIONS = ["1/4", "1/8", "1/16", "1/32"];
 export const TRIPLET_DURATIONS = ["1/8t", "1/16t", "1/32t", "1/64t"];
+
+export const durationsTable = {
+	"1/4": {
+		"1/4": 1,
+		"1/8": 2,
+		"1/8t": 3,
+		"1/16": 4,
+		"1/16t": 6,
+		"1/32": 8,
+		"1/32t": 12,
+		"1/64t": 24,
+	},
+	"1/8": {
+		"1/8": 1,
+		"1/16": 2,
+		"1/16t": 3,
+		"1/32": 4,
+		"1/32t": 6,
+	},
+	"1/8t": {
+		"1/8t": 1,
+		"1/16t": 2,
+		"1/32t": 4,
+	},
+	"1/16": {
+		"1/16": 1,
+		"1/32": 2,
+		"1/32t": 3,
+	},
+	"1/16t": {
+		"1/16t": 1,
+		"1/32t": 2,
+	},
+	"1/32": {
+		"1/32": 1,
+	},
+	"1/32t": {
+		"1/32t": 1,
+	},
+	"1/64t": {
+		"1/64t": 1,
+	},
+};
 
 export type StraightDuration = "1/4" | "1/8" | "1/16" | "1/32";
 export type TripletDuration = "1/8t" | "1/16t" | "1/32t" | "1/64t";
