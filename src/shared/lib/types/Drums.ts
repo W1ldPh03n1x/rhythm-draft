@@ -15,51 +15,15 @@ type DrumType =
 	| "Tom2"
 	| "Tom3";
 
-export const DrumKit = {
-	Ride: ["Ride", "RideBell"],
-	Crash: ["Crash", "CrashBell"],
-	HiHat: ["OpenHiHat", "ClosedHiHat", "PedalHiHat"],
-	Tom1: "Tom1",
-	Tom2: "Tom2",
-	Tom3: "Tom3",
-	Snare: ["Snare", "GhostSnare", "RimShot", "RimClick"],
-	Kick: "Kick",
-};
+type DrumName = "Kick" | "Snare" | "Tom1" | "Tom2" | "Tom3" | "HiHat" | "Ride" | "Crash";
 
-export const DrumsInAbc = new Map<DrumType, string>([
-	["OpenHiHat", "X^g"],
-	["ClosedHiHat", "Xg"],
-	["PedalHiHat", "XD"],
-	["Snare", "c"],
-	["RimShot", "Hc"],
-	["RimClick", "X=c"],
-	["GhostSnare", "_c"],
-	["Kick", "F"],
-	["Ride", "X^f"],
-	["RideBell", "H^f"],
-	["Crash", "Xa"],
-	["CrashBell", "Ha"],
-	["Tom1", "e"],
-	["Tom2", "d"],
-	["Tom3", "b"],
-]);
+type HiHat = "OpenHiHat" | "ClosedHiHat" | "PedalHiHat";
+type Snare = "Snare" | "GhostSnare" | "RimShot" | "RimClick";
+type Kick = "Kick";
+type Tom1 = "Tom1";
+type Tom2 = "Tom2";
+type Tom3 = "Tom3";
+type Ride = "Ride" | "RideBell";
+type Crash = "Crash" | "CrashBell";
 
-export const drumTypesInOrder: DrumType[] = [
-	"PedalHiHat",
-	"Kick",
-	"Tom3",
-	"Snare",
-	"RimShot",
-	"RimClick",
-	"GhostSnare",
-	"Tom2",
-	"Tom3",
-	"Ride",
-	"RideBell",
-	"ClosedHiHat",
-	"OpenHiHat",
-	"Crash",
-	"CrashBell",
-];
-
-export type { DrumType };
+export type { DrumType, DrumName, Kick, Snare, Tom1, Tom2, Tom3, HiHat, Ride, Crash };
