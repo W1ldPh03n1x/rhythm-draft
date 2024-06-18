@@ -1,10 +1,9 @@
-import { NoteLength } from "../types/MusicNotation";
-import { Signature, TimeSignature } from "../types/TimeSignature";
-import { DRUM_ALIAS_STRING, DRUM_MAPPING_STRING } from "./drumConsts";
+import { NoteLength, TimeSignature } from "../types";
+import { DRUM_ALIAS_STRING, DRUM_MAPPING_STRING, ROOT_BEAT_LENGTH } from "../consts";
 
-const makeDrumAbcHeader = (
-	baseLength: NoteLength = "1/8",
-	signature?: TimeSignature,
+export const makeDrumAbcHeader = (
+	signature: TimeSignature,
+	baseLength: NoteLength = ROOT_BEAT_LENGTH,
 	tempo?: number,
 ) => {
 	return (
@@ -15,32 +14,32 @@ const makeDrumAbcHeader = (
 	);
 };
 
-export class AbcDrumBar {
-	abcNotes: string;
-	baseLength: NoteLength;
-	signature: TimeSignature;
+// export class AbcDrumBar {
+// 	abcNotes: string;
+// 	baseLength: NoteLength;
+// 	signature: TimeSignature;
 
-	constructor(
-		abcNotes: string,
-		baseLength: NoteLength = "1/8",
-		signature: TimeSignature = new Signature("4/4"),
-	) {
-		this.abcNotes = abcNotes;
-		this.baseLength = baseLength;
-		this.signature = signature;
-	}
+// 	constructor(
+// 		abcNotes: string,
+// 		baseLength: NoteLength = "1/8",
+// 		signature: TimeSignature = "4/4",
+// 	) {
+// 		this.abcNotes = abcNotes;
+// 		this.baseLength = baseLength;
+// 		this.signature = signature;
+// 	}
 
-	getAbcString(
-		{ displaySignature, tempo }: { displaySignature?: boolean; tempo?: number } = {
-			displaySignature: true,
-		},
-	): string {
-		if (displaySignature) {
-			return makeDrumAbcHeader(this.baseLength, this.signature) + this.abcNotes;
-		}
-		return makeDrumAbcHeader(this.baseLength) + this.abcNotes;
-	}
-}
+// 	getAbcString(
+// 		{ displaySignature, tempo }: { displaySignature?: boolean; tempo?: number } = {
+// 			displaySignature: true,
+// 		},
+// 	): string {
+// 		if (displaySignature) {
+// 			return makeDrumAbcHeader(this.baseLength, this.signature) + this.abcNotes;
+// 		}
+// 		return makeDrumAbcHeader(this.baseLength) + this.abcNotes;
+// 	}
+// }
 
 export const drumMap = {
 	PHH: "XD",

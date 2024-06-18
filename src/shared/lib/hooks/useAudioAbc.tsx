@@ -10,7 +10,7 @@ import {
 
 export const useAudioAbc = (
 	source: string | TuneObject,
-	visualOptions: SynthVisualOptions = {
+	synthVisualOptions: SynthVisualOptions = {
 		displayLoop: true,
 		displayRestart: true,
 		displayPlay: true,
@@ -32,7 +32,7 @@ export const useAudioAbc = (
 			let myContext = new AudioContext();
 			let millisecondsPerMeasure = 10000;
 
-			synthControl.load(displayElement.current!, cursorControl, visualOptions);
+			synthControl.load(displayElement.current!, cursorControl, synthVisualOptions);
 
 			synth
 				.init({ audioContext: myContext, visualObj: visualObj, millisecondsPerMeasure })

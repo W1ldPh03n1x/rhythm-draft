@@ -1,0 +1,15 @@
+._ {
+	display: flex;
+	flex-direction: row;
+	// background: #000;
+
+	&container {
+		display: flex;
+		flex-direction: column;
+
+		&--open {
+			background: rgba($color: #000000, $alpha: 0.1);
+		}
+		// width: 100%;
+	}
+}

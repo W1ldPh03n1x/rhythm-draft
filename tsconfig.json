@@ -12,14 +12,20 @@
 		"module": "esnext",
 		"moduleResolution": "node",
 		"resolveJsonModule": true,
-		"isolatedModules": true,
+		// "isolatedModules": true,
 		"noEmit": true,
 		"jsx": "react-jsx",
 		"baseUrl": "./",
+		"preserveConstEnums": false,
 		"paths": {
 			// "@*": ["src/*"],
-			"@shared/*": ["src/shared/*"]
+			// "@shared/*": ["src/shared/*"]
 		}
 	},
-	"include": ["src", "src/app/tests"]
+	"include": ["src", "src/app/tests"],
+	"plugins": [
+		{
+			"name": "typed-scss-modules"
+		}
+	]
 }
